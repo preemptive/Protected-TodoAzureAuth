@@ -1,5 +1,6 @@
 ﻿/*
-   Copyright 2018 Xamarin Inc.
+   Copyright 2018 PreEmptive Solutions, LLC
+   Portions Copyright 2018 Xamarin Inc.
 
    Licensed under the Apache License, Version 2.0 (the "License");
    you may not use this file except in compliance with the License.
@@ -45,25 +46,16 @@ namespace TodoAzure.Droid
 
         public async Task<bool> AuthenticateAsync()
         {
-            bool success = false;
-            try
+            if (user == null)
             {
-                if (user == null)
+                // The authentication provider could also be Facebook, Twitter, or Microsoft
+                user = await TodoItemManager.DefaultManager.CurrentClient.LoginAsync(this, MobileServiceAuthenticationProvider.Google, Constants.URLScheme);
+                if (user != null)
                 {
-                    // The authentication provider could also be Facebook, Twitter, or Microsoft
-                    user = await TodoItemManager.DefaultManager.CurrentClient.LoginAsync(this, MobileServiceAuthenticationProvider.Google, Constants.URLScheme);
-                    if (user != null)
-                    {
-                        CreateAndShowDialog(string.Format("You are now logged in - {0}", user.UserId), "Logged in!");
-                    }
+                    CreateAndShowDialog(string.Format("You are now logged in - {0}", user.UserId), "Logged in!");
                 }
-                success = true;
             }
-            catch (Exception ex)
-            {
-                CreateAndShowDialog(ex.Message, "Authentication failed");
-            }
-            return success;
+            return true;
         }
 
         public async Task<bool> LogoutAsync()
