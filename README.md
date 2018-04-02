@@ -1,17 +1,22 @@
-TodoAzureAuth
-=============
+Protected-TodoAzureAuth
+=======================
 
-This sample demonstrates a Todo list application where the data is stored, accessed, and authenticated from an Azure Mobile App instance.
+This is a version of the Xamarin.Forms sample [TodoAzureAuth](https://developer.xamarin.com/samples/xamarin-forms/WebServices/TodoAzureAuth/).
+
+About the Original Sample
+-------------------------
+
+The original TodoAzureAuth sample demonstrates a to-do list application where the data is stored, accessed, and authenticated from an Azure Mobile App instance.
 
 The app functionality is:
 
-- View a list of tasks.
-- Add a new item to the list of tasks.
-- Set a task's status to 'completed'.
+* View a list of tasks.
+* Add a new item to the list of tasks.
+* Set a task's status to 'completed'.
 
 In all cases the tasks are stored in an Azure Mobile App instance.
 
-For more information about this sample see [Consuming an Azure Mobile App](http://developer.xamarin.com/guides/cross-platform/xamarin-forms/web-services/consuming/azure/) and [Authenticating Users with Azure Mobile Apps](http://developer.xamarin.com/guides/cross-platform/xamarin-forms/web-services/authentication/azure/).
+For more information about this sample see the Xamarin documentation on [Consuming an Azure Mobile App](http://developer.xamarin.com/guides/cross-platform/xamarin-forms/web-services/consuming/azure/) and [Authenticating Users with Azure Mobile Apps](http://developer.xamarin.com/guides/cross-platform/xamarin-forms/web-services/authentication/azure/).
 
 Setting up an Azure Mobile App
 ----------------------------------
@@ -34,7 +39,23 @@ In order to run this sample application the following steps must be carried out:
 1. In the Android project, update AndroidManifest.xml to include the URL scheme.
 1. In the UWP project, update Package.appxmanifest to include the URL scheme.
 
-Author
-------
+Authors
+-------
 
-David Britch
+Original TodoAzureAuth Sample: David Britch  
+Protected-TodoAzureAuth: Joe Sewell
+
+Copyright 2018 PreEmptive Solutions, LLC  
+Portions Copyright 2018 Xamarin Inc.  
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+   http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
