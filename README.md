@@ -37,6 +37,7 @@ Thus, both assemblies for the Android app - `TodoAzure.dll` and `TodoAzure.Droid
 Dotfuscator injects a Root Check into the Android app, which operates as follows:
 
 * When the user of the app selects the "Login" button on the initial Login Page, the Root Check detects whether or not the app is running on a device that has been rooted.
+    * This Check has additional Locations. This makes the app more resistant to reverse engineering, as if the Check code at one Location is removed, the others will still function.
 
 Dotfuscator also protects the Android app with renaming obfuscation.
 The following changes have been made to the renaming configuration, compared to the default configuration supplied by the build integration:

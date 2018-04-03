@@ -81,8 +81,14 @@
       <codetransformlist>
         <codetransform name="analytics" />
       </codetransformlist>
+      <type name="TodoAzure.TodoList">
+        <method name="AddItem" signature="System.Threading.Tasks.Task(TodoAzure.TodoItem)" />
+        <method name="CompleteItem" signature="System.Threading.Tasks.Task(TodoAzure.TodoItem)" />
+        <method name="RefreshItems" signature="System.Threading.Tasks.Task(bool, bool)" />
+      </type>
       <type name="TodoAzure.Droid.MainActivity">
         <method name="AuthenticateAsync" signature="System.Threading.Tasks.Task`1&lt;bool&gt;()" />
+        <method name="LogoutAsync" signature="System.Threading.Tasks.Task`1&lt;bool&gt;()" />
       </type>
       <propertylist>
         <property name="Action" value="None" />
