@@ -37,6 +37,7 @@ Thus, both assemblies for the Android app - `TodoAzure.dll` and `TodoAzure.Droid
 Dotfuscator injects a Root Check into the Android app, which operates as follows:
 
 * When the user of the app selects the "Login" button on the initial Login Page, the Root Check detects whether or not the app is running on a device that has been rooted.
+    * This Check notifies the app of the detection result by setting the field `TodoAzure.LoginPage.isDeviceRooted`. After the user attempts to log in, if `isDeviceRooted` is *true*, the app will report the custom event *Rooted Device Login Attempt* to Visual Studio App Center, allowing the developer to track how many users are using rooted devices.
 
 Dotfuscator also protects the Android app with renaming obfuscation.
 The following changes have been made to the renaming configuration, compared to the default configuration supplied by the build integration:
@@ -50,7 +51,7 @@ This repository also differs from TodoAzureAuth in the following ways:
 * The app is configured to use an Azure Mobile App instance owned by the repository's author. See [the Default Azure Mobile App section](#azure-default).
     * For instructions on how to set up your own instance, see [the Setting up an Azure Mobile App section](#azure).
 * Visual Studio App Center Analytics has been integrated into `TodoAzure.Droid`. The following custom events are reported:
-    * *Rooted Device Login Attempt*: When the user attempts to log in on a rooted Android device. As of this commit, however, nothing triggers this. Includes a custom property, *Login Status*, indicating the result of the login attempt.
+    * *Rooted Device Login Attempt*: When the user attempts to log in on a rooted Android device. Includes a custom property, *Login Status*, indicating the result of the login attempt.
     * *Add Item*: When the user adds an item to the shared to-do list. 
     * *Complete Item*: When the user completes an item on the shared to-do list.
 * Authentication errors are now handled by the Login Page's code.

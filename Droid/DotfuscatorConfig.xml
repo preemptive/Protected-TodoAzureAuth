@@ -87,9 +87,9 @@
       <propertylist>
         <property name="Action" value="None" />
         <property name="ActionProbability" value="1" />
-        <property name="ApplicationNotificationSinkName" value="" />
-        <property name="ApplicationNotificationSinkOwner" value="" />
-        <property name="ApplicationNotificationSinkElement" value="None" />
+        <property name="ApplicationNotificationSinkName" value="isDeviceRooted" />
+        <property name="ApplicationNotificationSinkOwner" value="TodoAzure.LoginPage" />
+        <property name="ApplicationNotificationSinkElement" value="Field" />
         <property name="ExtendedKeySourceName" value="" />
         <property name="ExtendedKeySourceOwner" value="" />
         <property name="ExtendedKeySourceElement" value="None" />
