@@ -41,6 +41,10 @@ Dotfuscator injects a Root Check into the Android app, which operates as follows
     * This Check exits the app when rooting is detected.
     * This Check has additional Locations. This makes the app more resistant to reverse engineering, as if the Check code at one Location is removed, the others will still function.
 
+This screenshot shows how the app appears after it is disabled:
+
+![](Screenshots/DisabledApp.png)
+
 Dotfuscator also protects the Android app with renaming obfuscation.
 The following changes have been made to the renaming configuration, compared to the default configuration supplied by the build integration:
 
