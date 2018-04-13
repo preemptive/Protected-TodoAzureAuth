@@ -15,6 +15,7 @@ This Repository has several branches that illustrate various ways to apply Root 
 * `master`: A Root Check is configured to disable and close the app if rooting is detected.
 * `warn-users`: A Root Check is configured to warn the user if rooting is detected.
 * `phone-home`: A Root Check is configured to report rooted devices to [Visual Studio App Center Analytics](https://docs.microsoft.com/en-us/appcenter/analytics/).
+    * **You are currently on this branch.** For details on how this Root Check was configured, see [the Changes from the Original Sample section](#changes).
 
 Additionally, the `before-checks` branch shows the state of this repository before Dotfuscator was integrated, and thus before any Root Checks had been configured.
 
