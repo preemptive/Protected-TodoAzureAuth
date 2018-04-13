@@ -1,9 +1,19 @@
 Protected-TodoAzureAuth
 =======================
 
-This is a modified version of the Xamarin.Forms sample [TodoAzureAuth](https://developer.xamarin.com/samples/xamarin-forms/WebServices/TodoAzureAuth/).
- 
+This repository demonstrates protecting the Xamarin.Forms sample [TodoAzureAuth](https://developer.xamarin.com/samples/xamarin-forms/WebServices/TodoAzureAuth/) with Root Checks.
+When injected into a Xamarin.Android app, Root Checks detect and respond to rooted Android devices.
+[Dotfuscator Community Edition (CE)](https://docs.microsoft.com/en-us/visualstudio/ide/dotfuscator/), a .NET protection tool that is included with Visual Studio 2017, can inject Root Checks into your Xamarin.Android app automatically.
+
+**Note: You are currently on the `before-checks` branch**, which shows the state of this repository before Dotfuscator was integrated, and thus before any Root Checks had been configured.
+
 To set up and run this sample yourself, see [the Setting Up the Sample section](#setup).
+
+About this Repository
+---------------------
+
+This Repository has several branches that illustrate various ways to apply Root Checks to the sample.
+For a full list of branches, see this README on the `master` branch.
 
 About the Original Sample
 -------------------------
