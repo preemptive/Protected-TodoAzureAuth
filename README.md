@@ -34,7 +34,9 @@ Changes from the Original Sample
 The primary difference between the original TodoAzureAuth and this repository is that [*PreEmptive Protection - Dotfuscator* Community Edition (CE)](https://docs.microsoft.com/en-us/visualstudio/ide/dotfuscator/) has been integrated into the build of `TodoAzure.Droid`, per [the instructions on the Xamarin Blog](https://blog.xamarin.com/protecting-xamarin-apps-dotfuscator/).
 Thus, both assemblies for the Android app - `TodoAzure.dll` and `TodoAzure.Droid.dll` - are protected.
 
-Dotfuscator protects the Android app with renaming obfuscation.
+Dotfuscator's code injection has been enabled, though no Checks have been configured as of this commit.
+
+Dotfuscator also protects the Android app with renaming obfuscation.
 The following changes have been made to the renaming configuration, compared to the default configuration supplied by the build integration:
 
 * Both input assemblies have Library Mode turned off, to allow greater renaming of code elements.

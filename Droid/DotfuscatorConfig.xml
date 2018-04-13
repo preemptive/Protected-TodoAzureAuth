@@ -74,7 +74,6 @@
   </renaming>
   <sos mergeruntime="true">
     <option>version:v4</option>
-    <option>disable</option>
     <option>dontsendtamper</option>
   </sos>
   <smartobfuscation>
