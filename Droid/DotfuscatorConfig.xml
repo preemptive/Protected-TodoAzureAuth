@@ -30,14 +30,12 @@
       <inputassembly refid="ddc1025d-dad4-4bd4-a7d3-a28a13399574">
         <option>honoroas</option>
         <option>stripoa</option>
-        <option>library</option>
         <option>transformxaml</option>
         <file dir="${configdir}\${InDir}" name="TodoAzure.Droid.dll" />
       </inputassembly>
       <inputassembly refid="05510256-9882-46d5-ad7c-f6354bdfe923">
         <option>honoroas</option>
         <option>stripoa</option>
-        <option>library</option>
         <option>transformxaml</option>
         <file dir="${configdir}\${InDir}" name="TodoAzure.dll" />
       </inputassembly>
@@ -48,6 +46,17 @@
   </output>
   <renaming>
     <option>xmlserialization</option>
+    <excludelist>
+      <type name="TodoAzure.TodoItem">
+        <propertymember name=".*" regex="true">
+          <customattribute name="Newtonsoft.Json.JsonPropertyAttribute" />
+          <customattribute name="Microsoft.WindowsAzure.MobileServices.VersionAttribute" />
+        </propertymember>
+      </type>
+      <type name="TodoAzure.LoginPage" excludetype="false">
+        <propertymember name="LastAuthStatus" />
+      </type>
+    </excludelist>
     <mapping>
       <mapoutput overwrite="true">
         <file dir="${configdir}\${ReportDir}" name="Renaming.xml" />

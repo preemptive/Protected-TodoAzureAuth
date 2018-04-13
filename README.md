@@ -34,6 +34,13 @@ Changes from the Original Sample
 The primary difference between the original TodoAzureAuth and this repository is that [*PreEmptive Protection - Dotfuscator* Community Edition (CE)](https://docs.microsoft.com/en-us/visualstudio/ide/dotfuscator/) has been integrated into the build of `TodoAzure.Droid`, per [the instructions on the Xamarin Blog](https://blog.xamarin.com/protecting-xamarin-apps-dotfuscator/).
 Thus, both assemblies for the Android app - `TodoAzure.dll` and `TodoAzure.Droid.dll` - are protected.
 
+Dotfuscator protects the Android app with renaming obfuscation.
+The following changes have been made to the renaming configuration, compared to the default configuration supplied by the build integration:
+
+* Both input assemblies have Library Mode turned off, to allow greater renaming of code elements.
+* The `TodoAzure.LoginPage.LastAuthStatus` property has been excluded from renaming, as the name of this property is implicitly used by this property's setter's call to `OnPropertyChanged()`.
+* `TodoAzure.TodoItem` and its data properties have been excluded from renaming, as these are used via reflection to access the Azure Mobile App instance's table.
+
 This repository also differs from TodoAzureAuth in the following ways:
 
 * The app is configured to use an Azure Mobile App instance owned by the repository's author. See [the Default Azure Mobile App section](#azure-default).
@@ -46,7 +53,7 @@ This repository also differs from TodoAzureAuth in the following ways:
     * `TodoAzure.iOS`: iPhone, iPhoneSimulator
     * `TodoAzure.UWP`: ARM, x64, x86
 * Release builds of `TodoAzure.Droid` now support running on x86-based emulators.
- 
+
 <a name="setup"></a>
 Setting up the Sample
 ---------------------
