@@ -34,7 +34,9 @@ Changes from the Original Sample
 The primary difference between the original TodoAzureAuth and this repository is that [*PreEmptive Protection - Dotfuscator* Community Edition (CE)](https://docs.microsoft.com/en-us/visualstudio/ide/dotfuscator/) has been integrated into the build of `TodoAzure.Droid`, per [the instructions on the Xamarin Blog](https://blog.xamarin.com/protecting-xamarin-apps-dotfuscator/).
 Thus, both assemblies for the Android app - `TodoAzure.dll` and `TodoAzure.Droid.dll` - are protected.
 
-Dotfuscator's code injection has been enabled, though no Checks have been configured as of this commit.
+Dotfuscator injects a Root Check into the Android app, which operates as follows:
+
+* When the user of the app selects the "Login" button on the initial Login Page, the Root Check detects whether or not the app is running on a device that has been rooted.
 
 Dotfuscator also protects the Android app with renaming obfuscation.
 The following changes have been made to the renaming configuration, compared to the default configuration supplied by the build integration:
@@ -71,6 +73,8 @@ To run this sample application, perform the following steps:
 6. Set your [MSBuild project build output verbosity](https://docs.microsoft.com/en-us/visualstudio/ide/how-to-view-save-and-configure-build-log-files#to-change-the-amount-of-information-included-in-the-build-log) to Normal or a more verbose setting. 
 7. Build the `TodoAzure.Droid` Xamarin.Android project for the *AnyCPU* platform in the *Release* configuration.
 8. Verify that Dotfuscator ran by checking Visual Studio's Output pane. Look for the line `Running Dotfuscator with config file 'DotfuscatorConfig.xml'...`, which indicates where the Dotfuscator output begins.
+    * A line such as `[Build Output]    RootCheck: TodoAzure.TodoList::AddItem` indicates where Dotfuscator injected Root Check code. In this case, a Root Check was injected into the `AddItem` method of the `TodoAzure.TodoList` type; note that the names shown are the pre-obfuscated names.
+    * You may see the warning `Injecting Android-specific Root Check functionality into non-Android-specific assembly TodoAzure.dll`. This warning can be ignored, because in this case Dotfuscator is processing a copy of `TodoAzure.dll` specifically for use with the Android project, so injecting Android-specific functionality into that copy is not an issue.
 9. Deploy this Xamarin.Android app to a device or emulator.
 
 <a name="azure-default"></a>
