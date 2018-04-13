@@ -39,6 +39,10 @@ Dotfuscator injects a Root Check into the Android app, which operates as follows
 * When the user of the app selects the "Login" button on the initial Login Page, the Root Check detects whether or not the app is running on a device that has been rooted.
     * This Check notifies the app of the detection result by setting the property `TodoAzure.LoginPage.IsDeviceRooted`. If rooting was detected, this property will cause the app to display a warning message before initiating the login process.
 
+This screenshot shows the warning message:
+
+![](Screenshots/WarningDialog.png)
+
 Dotfuscator also protects the Android app with renaming obfuscation.
 The following changes have been made to the renaming configuration, compared to the default configuration supplied by the build integration:
 
