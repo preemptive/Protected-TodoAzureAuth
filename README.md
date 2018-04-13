@@ -11,7 +11,12 @@ About this Repository
 ---------------------
 
 This Repository has several branches that illustrate various ways to apply Root Checks to the sample.
-For a full list of branches, see this README on the `master` branch.
+
+* `master`: A Root Check is configured to disable and close the app if rooting is detected.
+* `warn-users`: A Root Check is configured to warn the user if rooting is detected.
+* `phone-home`: A Root Check is configured to report rooted devices to [Visual Studio App Center Analytics](https://docs.microsoft.com/en-us/appcenter/analytics/).
+
+Additionally, the `before-checks` branch shows the state of this repository before Dotfuscator was integrated, and thus before any Root Checks had been configured.
 
 About the Original Sample
 -------------------------
@@ -28,6 +33,7 @@ In all cases the tasks are stored in an Azure Mobile App instance.
 
 For more information about this sample see the Xamarin documentation on [Consuming an Azure Mobile App](http://developer.xamarin.com/guides/cross-platform/xamarin-forms/web-services/consuming/azure/) and [Authenticating Users with Azure Mobile Apps](http://developer.xamarin.com/guides/cross-platform/xamarin-forms/web-services/authentication/azure/).
 
+<a name="changes"></a>
 Changes from the Original Sample
 --------------------------------
 
@@ -64,7 +70,7 @@ This repository also differs from TodoAzureAuth in the following ways:
     * `TodoAzure.iOS`: iPhone, iPhoneSimulator
     * `TodoAzure.UWP`: ARM, x64, x86
 * Release builds of `TodoAzure.Droid` now support running on x86-based emulators.
-
+ 
 <a name="setup"></a>
 Setting up the Sample
 ---------------------
