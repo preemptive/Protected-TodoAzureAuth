@@ -76,6 +76,27 @@
     <option>version:v4</option>
     <option>dontsendtamper</option>
   </sos>
+  <extattributes>
+    <extattribute name="PreEmptive.Attributes.RootCheckAttribute">
+      <codetransformlist>
+        <codetransform name="analytics" />
+      </codetransformlist>
+      <type name="TodoAzure.Droid.MainActivity">
+        <method name="AuthenticateAsync" signature="System.Threading.Tasks.Task`1&lt;bool&gt;()" />
+      </type>
+      <propertylist>
+        <property name="Action" value="None" />
+        <property name="ActionProbability" value="1" />
+        <property name="ApplicationNotificationSinkName" value="" />
+        <property name="ApplicationNotificationSinkOwner" value="" />
+        <property name="ApplicationNotificationSinkElement" value="None" />
+        <property name="ExtendedKeySourceName" value="" />
+        <property name="ExtendedKeySourceOwner" value="" />
+        <property name="ExtendedKeySourceElement" value="None" />
+        <property name="ExtendedKeyMethodArguments" value="" />
+      </propertylist>
+    </extattribute>
+  </extattributes>
   <smartobfuscation>
     <smartobfuscationreport verbosity="all" overwrite="true">
       <file dir="${configdir}\${ReportDir}" name="SmartObfuscation.xml" />
