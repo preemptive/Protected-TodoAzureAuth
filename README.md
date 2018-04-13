@@ -102,6 +102,16 @@ https://docs.microsoft.com/en-us/azure/app-service-mobile/app-service-mobile-xam
     * `iOS/Info.plist`
     * `UWP/Package.appxmanifest`
 
+About Dotfuscator
+-----------------
+
+[PreEmptive Protection - Dotfuscator](https://www.preemptive.com/products/dotfuscator/overview) is a .NET obfuscation and application hardening solution from PreEmptive Solutions.
+Dotfuscator protects your .NET and Xamarin applications from reverse engineering, piracy, and data theft.
+
+This sample uses [Dotfuscator Community Edition](https://docs.microsoft.com/en-us/visualstudio/ide/dotfuscator/), which is included with Visual Studio and provides basic obfuscation and Runtime Check features.
+[Dotfuscator Professional Edition](https://www.preemptive.com/products/dotfuscator/overview) offers advanced protection features and ongoing support suitable for commercial projects.
+You can [compare editions](https://www.preemptive.com/products/dotfuscator/compare-editions) and [get a free trial of Professional Edition](https://www.preemptive.com/landing/eval-request) through [the PreEmptive Solutions website](https://www.preemptive.com/).
+
 Authors
 -------
 
