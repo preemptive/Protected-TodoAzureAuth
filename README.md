@@ -50,6 +50,7 @@ This repository also differs from TodoAzureAuth in the following ways:
 * The app is configured to use an Azure Mobile App instance owned by the repository's author. See [the Default Azure Mobile App section](#azure-default).
     * For instructions on how to set up your own instance, see [the Setting up an Azure Mobile App section](#azure).
 * Visual Studio App Center Analytics has been integrated into `TodoAzure.Droid`. The following custom events are reported:
+    * *Rooted Device Login Attempt*: When the user attempts to log in on a rooted Android device. As of this commit, however, nothing triggers this. Includes a custom property, *Login Status*, indicating the result of the login attempt.
     * *Add Item*: When the user adds an item to the shared to-do list. 
     * *Complete Item*: When the user completes an item on the shared to-do list.
 * Authentication errors are now handled by the Login Page's code.

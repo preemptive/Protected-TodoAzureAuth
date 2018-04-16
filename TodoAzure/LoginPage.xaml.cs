@@ -16,6 +16,8 @@
 */
 
 using System;
+using System.Collections.Generic;
+using Microsoft.AppCenter.Analytics;
 using Xamarin.Forms;
 
 namespace TodoAzure
@@ -40,6 +42,8 @@ namespace TodoAzure
             InitializeComponent();
             LastAuthStatus = "Not yet attempted";
         }
+
+        private bool isDeviceRooted;
 
         async void OnLoginButtonClicked(object sender, EventArgs e)
         {
@@ -70,6 +74,14 @@ namespace TodoAzure
                 {
                     LastAuthStatus = "Authentication failed: " + ex.Message;
                 }
+            }
+
+            if (isDeviceRooted)
+            {
+                Analytics.TrackEvent("Rooted Device Login Attempt", new Dictionary<string, string>
+                {
+                    { "Login Status", LastAuthStatus }
+                });
             }
         }
     }
