@@ -28,6 +28,7 @@ This sample differs from the original TodoAzureAuth sample in the following ways
     * `TodoAzure.Droid`: AnyCPU
     * `TodoAzure.iOS`: iPhone, iPhoneSimulator
     * `TodoAzure.UWP`: ARM, x64, x86
+* Release builds of `TodoAzure.Droid` now support running on x86-based emulators.
 
 Setting up an Azure Mobile App
 ----------------------------------
