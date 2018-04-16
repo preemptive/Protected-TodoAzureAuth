@@ -38,6 +38,7 @@ Dotfuscator injects a Root Check into the Android app, which operates as follows
 
 * When the user of the app selects the "Login" button on the initial Login Page, the Root Check detects whether or not the app is running on a device that has been rooted.
     * This Check notifies the app of the detection result by calling the method `TodoAzure.App.DisableIfCompromised`. If rooting was detected, this method will disable the app by saving a property to local storage. Subsequent runs of the disabled app will error on startup and then exit.
+    * This Check exits the app when rooting is detected.
     * This Check has additional Locations. This makes the app more resistant to reverse engineering, as if the Check code at one Location is removed, the others will still function.
 
 Dotfuscator also protects the Android app with renaming obfuscation.

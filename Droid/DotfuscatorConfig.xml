@@ -91,7 +91,7 @@
         <method name="LogoutAsync" signature="System.Threading.Tasks.Task`1&lt;bool&gt;()" />
       </type>
       <propertylist>
-        <property name="Action" value="None" />
+        <property name="Action" value="Exit" />
         <property name="ActionProbability" value="1" />
         <property name="ApplicationNotificationSinkName" value="DisableIfCompromised" />
         <property name="ApplicationNotificationSinkOwner" value="TodoAzure.App" />
