@@ -39,6 +39,14 @@ Dotfuscator injects a Root Check into the Android app, which operates as follows
 * When the user of the app selects the "Login" button on the initial Login Page, the Root Check detects whether or not the app is running on a device that has been rooted.
     * This Check notifies the app of the detection result by setting the field `TodoAzure.LoginPage.isDeviceRooted`. After the user attempts to log in, if `isDeviceRooted` is *true*, the app will report the custom event *Rooted Device Login Attempt* to Visual Studio App Center, allowing the developer to track how many users are using rooted devices.
 
+This screenshot shows an example of Visual Studio App Center's Analytics tab showing the *Rooted Device Login Attempt* custom event, indicating that half of the users that log in are using rooted devices:
+
+![](Screenshots/AppCenter-Users.png)
+
+This screenshot shows the same custom event's custom properties, indicating that 80% of login attempts on rooted devices are successful, and 20% are cancelled by the user:
+
+![](Screenshots/AppCenter-Properties.png)
+
 Dotfuscator also protects the Android app with renaming obfuscation.
 The following changes have been made to the renaming configuration, compared to the default configuration supplied by the build integration:
 
@@ -86,6 +94,8 @@ To run this sample application, perform the following steps:
     * A line such as `[Build Output]    RootCheck: TodoAzure.TodoList::AddItem` indicates where Dotfuscator injected Root Check code. In this case, a Root Check was injected into the `AddItem` method of the `TodoAzure.TodoList` type; note that the names shown are the pre-obfuscated names.
     * You may see the warning `Injecting Android-specific Root Check functionality into non-Android-specific assembly TodoAzure.dll`. This warning can be ignored, because in this case Dotfuscator is processing a copy of `TodoAzure.dll` specifically for use with the Android project, so injecting Android-specific functionality into that copy is not an issue.
 11. Deploy this Xamarin.Android app to a device or emulator.
+
+After running the app, data should appear in [Visual Studio App Center](https://appcenter.ms/apps), under your app's Analytics node.
 
 <a name="azure-default"></a>
 Default Azure Mobile App
