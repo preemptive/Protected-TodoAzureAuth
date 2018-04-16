@@ -19,6 +19,7 @@ using Microsoft.WindowsAzure.MobileServices;
 using System;
 using System.Threading.Tasks;
 using Windows.UI.Popups;
+using Windows.UI.Xaml;
 
 namespace TodoAzure.UWP
 {
@@ -32,7 +33,11 @@ namespace TodoAzure.UWP
         public MainPage()
         {
             this.InitializeComponent();
-            TodoAzure.App.Init(this);
+            TodoAzure.App.Init(this, () =>
+            {
+                Application.Current.Exit();
+                throw new Exception("Exiting the app");
+            });
             this.LoadApplication(new TodoAzure.App());
         }
 

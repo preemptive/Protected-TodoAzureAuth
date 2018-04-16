@@ -23,15 +23,22 @@ namespace TodoAzure
     public class App : Application
     {
         public static IAuthenticate Authenticator { get; private set; }
+        private static Action ExitAction { get; set; }
+
+        public static void Exit()
+        {
+            ExitAction();
+        }
 
         public App()
         {
             MainPage = new LoginPage();
         }
 
-        public static void Init(IAuthenticate authenticator)
+        public static void Init(IAuthenticate authenticator, Action exitAction)
         {
             Authenticator = authenticator;
+            ExitAction = exitAction;
         }
 
         private const string DisabledPropertyKey = "AppStatus";

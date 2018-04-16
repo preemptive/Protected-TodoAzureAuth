@@ -40,7 +40,10 @@ namespace TodoAzure.Droid
 
             global::Xamarin.Forms.Forms.Init(this, bundle);
             Microsoft.WindowsAzure.MobileServices.CurrentPlatform.Init();
-            App.Init((IAuthenticate)this);
+            App.Init((IAuthenticate) this, () =>
+            {
+                Process.KillProcess(Process.MyPid());
+            });
             LoadApplication(new App());
         }
 

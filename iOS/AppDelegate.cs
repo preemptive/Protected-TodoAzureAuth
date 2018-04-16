@@ -16,6 +16,7 @@
 */
 
 using System;
+using System.Threading;
 using System.Threading.Tasks;
 using Foundation;
 using Microsoft.WindowsAzure.MobileServices;
@@ -32,7 +33,10 @@ namespace TodoAzure.iOS
         {
             global::Xamarin.Forms.Forms.Init();
             Microsoft.WindowsAzure.MobileServices.CurrentPlatform.Init();
-            App.Init(this);
+            App.Init(this, () =>
+            {
+                Thread.CurrentThread.Abort();
+            });
             LoadApplication(new App());
 
             return base.FinishedLaunching(app, options);
