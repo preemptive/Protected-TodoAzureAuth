@@ -1,7 +1,7 @@
 Protected-TodoAzureAuth
 =======================
 
-This is a version of the Xamarin.Forms sample [TodoAzureAuth](https://developer.xamarin.com/samples/xamarin-forms/WebServices/TodoAzureAuth/).
+This is a modified version of the Xamarin.Forms sample [TodoAzureAuth](https://developer.xamarin.com/samples/xamarin-forms/WebServices/TodoAzureAuth/).
 
 About the Original Sample
 -------------------------
@@ -17,6 +17,14 @@ The app functionality is:
 In all cases the tasks are stored in an Azure Mobile App instance.
 
 For more information about this sample see the Xamarin documentation on [Consuming an Azure Mobile App](http://developer.xamarin.com/guides/cross-platform/xamarin-forms/web-services/consuming/azure/) and [Authenticating Users with Azure Mobile Apps](http://developer.xamarin.com/guides/cross-platform/xamarin-forms/web-services/authentication/azure/).
+
+Changes from the Original Sample
+--------------------------------
+
+This sample differs from the original TodoAzureAuth sample in the following ways:
+
+* The Windows Phone 8.1 project (`TodoAzure.WinPhone81`) has been removed, as Visual Studio 2017 does not support this project type.
+
 
 Setting up an Azure Mobile App
 ----------------------------------
