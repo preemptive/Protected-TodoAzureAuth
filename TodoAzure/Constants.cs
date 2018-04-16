@@ -1,5 +1,6 @@
-﻿/*
-   Copyright 2018 Xamarin Inc.
+/*
+   Copyright 2018 PreEmptive Solutions, LLC
+   Portions Copyright 2018 Xamarin Inc.
 
    Licensed under the Apache License, Version 2.0 (the "License");
    you may not use this file except in compliance with the License.
@@ -18,10 +19,15 @@ namespace TodoAzure
 {
     public static class Constants
     {
-        // Replace string with your mobile service URL.
-        public static string ApplicationURL = @"INSERT_APP_SERVICE_URL_HERE";
+        // The Azure Mobile App instance URL
+        public static string AzureMobileAppInstanceURL = @"https://jsewell-quickstart.azurewebsites.net";
 
-        public static string URLScheme = "INSERT_URL_SCHEME_HERE";
+        // The authentication redirect scheme
+        // NOTE: If you update this, be sure to also update project specific settings:
+        //  * TodoAzure.Droid:  AndroidManifest.xml
+        //  * TodoAzure.iOS:    Info.plist
+        //  * TodoAzure.UWP:    Package.appxmanifest
+        public static string AuthenticationRedirectScheme = "jsewellquickstart";
     }
 }
 

@@ -23,6 +23,8 @@ Changes from the Original Sample
 
 This sample differs from the original TodoAzureAuth sample in the following ways:
 
+* The app is configured to use an Azure Mobile App instance owned by the repository's author. See [the Default Azure Mobile App section](#azure-default).
+    * For instructions on how to set up your own instance, see [the Setting up an Azure Mobile App section](#azure).
 * Authentication errors are now handled by the Login Page's code.
 * The result of the last authentication attempt is now shown on the Login Page.
 * The Windows Phone 8.1 project (`TodoAzure.WinPhone81`) has been removed, as Visual Studio 2017 does not support this project type.
@@ -32,26 +34,50 @@ This sample differs from the original TodoAzureAuth sample in the following ways
     * `TodoAzure.UWP`: ARM, x64, x86
 * Release builds of `TodoAzure.Droid` now support running on x86-based emulators.
 
+<a name="azure-default"></a>
+Default Azure Mobile App
+------------------------
+
+An Azure Mobile App instance is required to run TodoAzureAuth.
+Protected-TodoAzureAuth is already configured to use such an instance, `https://jsewell-quickstart.azurewebsites.net`, which is owned by the repository's author.
+Note the following when using this instance:
+
+* Each user can only view and modify to-do items that user created.
+* The author and anyone else who manages the instance can view and modify all of the to-do items. They cannot view user credentials, however, as that process is handled by Google and Microsoft Azure automatically.
+* The author makes no uptime guarantees.
+
+You can [set up your own instance and configure Protected-TodoAzureAuth to use it instead](#azure).
+
+<a name="azure"></a>
 Setting up an Azure Mobile App
-----------------------------------
+------------------------------
 
-In order to run this sample application an Azure Mobile App must first be created. When creating an Azure Mobile App instance please ensure that the service uses a Node.js backend.
+You can create your own Azure Mobile App instance and have Protected-TodoAzureAuth use that instance, rather than [the default instance](#azure-default). To do so:
 
-For information about how to Create an Azure Mobile App that can be consumed by Xamarin.Forms, see [Create a Xamarin.Forms app](https://azure.microsoft.com/en-gb/documentation/articles/app-service-mobile-xamarin-forms-get-started/) on the Azure website.
-
-For information about how to configure the Azure Mobile App instance to manage the authentication process, see [Add authentication to your Xamarin.Forms app](https://azure.microsoft.com/en-gb/documentation/articles/app-service-mobile-xamarin-forms-get-started-users/) on the Azure website.
-
-Please ensure that the Azure Mobile App authentication options specifies a URL scheme.
-
-Sample Setup
-----------------
-
-In order to run this sample application the following steps must be carried out:
-
-1. Update Constants.cs, in the PCL project, to include the URL of the Azure Mobile App, and the URL scheme for the Xamarin.Forms app.
-1. In the iOS project, update Info.plist to include the URL scheme.
-1. In the Android project, update AndroidManifest.xml to include the URL scheme.
-1. In the UWP project, update Package.appxmanifest to include the URL scheme.
+1. Create a mobile back end by following the [Create a new Mobile Apps back end](
+https://docs.microsoft.com/en-us/azure/app-service-mobile/app-service-mobile-xamarin-forms-get-started#create-a-new-mobile-apps-back-end
+) section of the Azure documentation's *Create a Xamarin.Forms app* page.
+2. Configure your instance by following the [Configure the server project](https://docs.microsoft.com/en-us/azure/app-service-mobile/app-service-mobile-xamarin-forms-get-started#configure-the-server-project)  section of the Azure documentation's *Create a Xamarin.Forms app* page.
+    * Select "Xamarin.Forms" as your client platform.
+    * Select "Node.js" as your backend language.
+3. In your Azure portal, select in the App Services in the navigation menu, choose your Azure Mobile App instance, and view the "Overview" page. Note the value of the "URL" field. This is the **Azure Mobile App instance URL**.
+4. Register your Azure Mobile App instance as an app in Google authentication by following the Azure documentation's [How to configure your App Service application to use Google login](https://docs.microsoft.com/en-us/azure/app-service/app-service-mobile-how-to-configure-google-authentication) page.
+    * Select "Log in with Google" as the "Action to take when request is not authenticated".
+5. Create a redirect URL by following the [Add your app to the Allowed External Redirect URLs](https://docs.microsoft.com/en-us/azure/app-service-mobile/app-service-mobile-xamarin-forms-get-started-users#redirecturl) section of the Azure documentation's *Add authentication to your Xamarin Forms app* page.
+    * Note the scheme of this URL (everything before the `://easyauth.callback`). This is the **authentication redirect scheme**.
+6. Require authentication by following the *Node.js back end (via the Azure portal)* instructions in the [Restrict permissions to authenticated users](https://docs.microsoft.com/en-us/azure/app-service-mobile/app-service-mobile-xamarin-forms-get-started-users#restrict-permissions-to-authenticated-users) section of the Azure documentation's *Add authentication to your Xamarin Forms app* page.
+7. (Optional) Prevent users from seeing and modifying each others' to-do items by doing the following:
+    * In your Azure portal, select in the App Services in the navigation menu, choose your Azure Mobile App instance, and view the *Mobile* section's "Easy tables" page.
+    * Select the `todoitem` table.
+    * Click *Edit script*.
+    * In the `todoitem.js` script that appears, uncomment the `table.read`, `table.insert`, `table.update`, and `table.delete` calls. Save the script.
+8. Reconfigure the Protected-TodoAzureAuth client code to use your instance and redirect scheme. In the TodoAzure (Portable) project, in the `Constants.cs` file:
+    * Update the `AzureMobileAppInstanceURL` constant to the Azure Mobile App instance URL you noted in step 3.
+    * Update the `AuthenticationRedirectScheme` constant to the authentication redirect scheme you noted in step 5.
+9. Reconfigure the Protected-TodoAzureAuth permissions to use your redirect scheme. Open each of the following files in a text editor and replace `jsewellquickstart` with the authentication redirect scheme you noted in step 5:
+    * `Droid/Properties/AndroidManifest.xml`
+    * `iOS/Info.plist`
+    * `UWP/Package.appxmanifest`
 
 Authors
 -------

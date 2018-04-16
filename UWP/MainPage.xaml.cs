@@ -1,5 +1,6 @@
-﻿/*
-   Copyright 2018 Xamarin Inc.
+/*
+   Copyright 2018 PreEmptive Solutions, LLC
+   Portions Copyright 2018 Xamarin Inc.
 
    Licensed under the Apache License, Version 2.0 (the "License");
    you may not use this file except in compliance with the License.
@@ -43,7 +44,7 @@ namespace TodoAzure.UWP
             {
                 if (user == null)
                 {
-                    user = await TodoItemManager.DefaultManager.CurrentClient.LoginAsync(MobileServiceAuthenticationProvider.Google, Constants.URLScheme);
+                    user = await TodoItemManager.DefaultManager.CurrentClient.LoginAsync(MobileServiceAuthenticationProvider.Google, Constants.AuthenticationRedirectScheme);
                     if (user != null)
                     {
                         var dialog = new MessageDialog(string.Format("You are now logged in - {0}", user.UserId), "Authentication");

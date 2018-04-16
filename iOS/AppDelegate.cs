@@ -1,5 +1,6 @@
 ﻿/*
-   Copyright 2018 Xamarin Inc.
+   Copyright 2018 PreEmptive Solutions, LLC
+   Portions Copyright 2018 Xamarin Inc.
 
    Licensed under the Apache License, Version 2.0 (the "License");
    you may not use this file except in compliance with the License.
@@ -45,7 +46,7 @@ namespace TodoAzure.iOS
                 if (user == null)
                 {
                     // The authentication provider could also be Facebook, Twitter, or Microsoft
-                    user = await TodoItemManager.DefaultManager.CurrentClient.LoginAsync(UIApplication.SharedApplication.KeyWindow.RootViewController, MobileServiceAuthenticationProvider.Google, Constants.URLScheme);
+                    user = await TodoItemManager.DefaultManager.CurrentClient.LoginAsync(UIApplication.SharedApplication.KeyWindow.RootViewController, MobileServiceAuthenticationProvider.Google, Constants.AuthenticationRedirectScheme);
                     if (user != null)
                     {
                         var authAlert = UIAlertController.Create("Authentication", "You are now logged in " + user.UserId, UIAlertControllerStyle.Alert);

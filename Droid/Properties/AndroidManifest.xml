@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <!--
    Copyright 2018 PreEmptive Solutions, LLC
    Portions Copyright 2018 Xamarin Inc.
@@ -24,7 +24,8 @@
 				<action android:name="android.intent.action.VIEW" />
 				<category android:name="android.intent.category.DEFAULT" />
 				<category android:name="android.intent.category.BROWSABLE" />
-				<data android:scheme="INSERT_URL_SCHEME_HERE" android:host="easyauth.callback" />
+				<!-- android:scheme attribute's value is the authentication redirect scheme -->
+				<data android:scheme="jsewellquickstart" android:host="easyauth.callback" />
 			</intent-filter>
 		</activity>
 	</application>

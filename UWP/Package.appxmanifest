@@ -1,6 +1,7 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <!--
-   Copyright 2018 Xamarin Inc.
+   Copyright 2018 PreEmptive Solutions, LLC
+   Portions Copyright 2018 Xamarin Inc.
 
    Licensed under the Apache License, Version 2.0 (the "License");
    you may not use this file except in compliance with the License.
@@ -37,7 +38,8 @@
       </uap:VisualElements>
       <Extensions>
         <uap:Extension Category="windows.protocol">
-          <uap:Protocol Name="inserturlschemehere">
+          <!-- Name attribute's value is the authentication redirect scheme -->
+          <uap:Protocol Name="jsewellquickstart">
             <uap:DisplayName>TodoAzure</uap:DisplayName>
           </uap:Protocol>
         </uap:Extension>

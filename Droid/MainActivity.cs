@@ -49,7 +49,7 @@ namespace TodoAzure.Droid
             if (user == null)
             {
                 // The authentication provider could also be Facebook, Twitter, or Microsoft
-                user = await TodoItemManager.DefaultManager.CurrentClient.LoginAsync(this, MobileServiceAuthenticationProvider.Google, Constants.URLScheme);
+                user = await TodoItemManager.DefaultManager.CurrentClient.LoginAsync(this, MobileServiceAuthenticationProvider.Google, Constants.AuthenticationRedirectScheme);
                 if (user != null)
                 {
                     CreateAndShowDialog(string.Format("You are now logged in - {0}", user.UserId), "Logged in!");

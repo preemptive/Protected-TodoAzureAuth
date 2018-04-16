@@ -1,5 +1,6 @@
 /*
-   Copyright 2018 Xamarin Inc.
+   Copyright 2018 PreEmptive Solutions, LLC
+   Portions Copyright 2018 Xamarin Inc.
 
    Licensed under the Apache License, Version 2.0 (the "License");
    you may not use this file except in compliance with the License.
@@ -51,7 +52,7 @@ namespace TodoAzure
 		private TodoItemManager ()
 		{
 			this.client = new MobileServiceClient (
-				Constants.ApplicationURL);
+				Constants.AzureMobileAppInstanceURL);
 
 #if OFFLINE_SYNC_ENABLED
             var store = new MobileServiceSQLiteStore("localstore.db");
