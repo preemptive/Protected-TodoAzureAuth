@@ -1,5 +1,6 @@
 ﻿/*
-   Copyright 2018 Xamarin Inc.
+   Copyright 2018 PreEmptive Solutions, LLC
+   Portions Copyright 2018 Xamarin Inc.
 
    Licensed under the Apache License, Version 2.0 (the "License");
    you may not use this file except in compliance with the License.
@@ -21,11 +22,23 @@ namespace TodoAzure
 {
     public partial class LoginPage : ContentPage
     {
-        bool authenticated = false;
+        private bool authenticated = false;
+        private string lastAuthStatus;
+
+        public string LastAuthStatus
+        {
+            get => lastAuthStatus;
+            set
+            {
+                lastAuthStatus = value;
+                OnPropertyChanged();
+            }
+        }
 
         public LoginPage()
         {
             InitializeComponent();
+            LastAuthStatus = "Not yet attempted";
         }
 
         async void OnLoginButtonClicked(object sender, EventArgs e)
@@ -39,19 +52,24 @@ namespace TodoAzure
 
                 if (authenticated)
                 {
-                    Application.Current.MainPage = new TodoList();
+                    LastAuthStatus = "Authentication successful";
+                    Application.Current.MainPage = new TodoList(this);
                 }
-            }
-            catch (InvalidOperationException ex)
-            {
-                if (ex.Message.Contains("Authentication was cancelled"))
+                else
                 {
-                    messageLabel.Text = "Authentication cancelled by the user";
+                    LastAuthStatus = "Did not authenticate";
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                messageLabel.Text = "Authentication failed";
+                if (ex is InvalidOperationException && ex.Message.Contains("Authentication was cancelled"))
+                {
+                    LastAuthStatus = "Authentication cancelled by the user";
+                }
+                else
+                {
+                    LastAuthStatus = "Authentication failed: " + ex.Message;
+                }
             }
         }
     }

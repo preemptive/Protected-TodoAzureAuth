@@ -23,6 +23,7 @@ Changes from the Original Sample
 
 This sample differs from the original TodoAzureAuth sample in the following ways:
 
+* The result of the last authentication attempt is now shown on the Login Page.
 * The Windows Phone 8.1 project (`TodoAzure.WinPhone81`) has been removed, as Visual Studio 2017 does not support this project type.
 * The build configurations have been updated such that the `TodoAzure` portable class library (PCL) and one platform-specific project are built for each platform:
     * `TodoAzure.Droid`: AnyCPU

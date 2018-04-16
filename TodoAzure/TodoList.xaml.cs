@@ -1,5 +1,6 @@
 ﻿/*
-   Copyright 2018 Xamarin Inc.
+   Copyright 2018 PreEmptive Solutions, LLC
+   Portions Copyright 2018 Xamarin Inc.
 
    Licensed under the Apache License, Version 2.0 (the "License");
    you may not use this file except in compliance with the License.
@@ -22,12 +23,14 @@ namespace TodoAzure
 {
     public partial class TodoList : ContentPage
     {
+        private LoginPage loginPage;
         TodoItemManager manager;
 
-        public TodoList()
+        public TodoList(LoginPage loginPage)
         {
             InitializeComponent();
 
+            this.loginPage = loginPage;
             manager = TodoItemManager.DefaultManager;
 
             // OnPlatform<T> doesn't currently support the "Windows" target platform, so we have this check here.
@@ -89,7 +92,7 @@ namespace TodoAzure
             }
             if (loggedOut)
             {
-                Application.Current.MainPage = new LoginPage();
+                Application.Current.MainPage = loginPage;
             }
         }
 
