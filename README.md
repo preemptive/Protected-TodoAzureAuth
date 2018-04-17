@@ -2,6 +2,8 @@ Protected-TodoAzureAuth
 =======================
 
 This is a modified version of the Xamarin.Forms sample [TodoAzureAuth](https://developer.xamarin.com/samples/xamarin-forms/WebServices/TodoAzureAuth/).
+ 
+To set up and run this sample yourself, see [the Setting Up the Sample section](#setup).
 
 About the Original Sample
 -------------------------
@@ -33,6 +35,17 @@ This sample differs from the original TodoAzureAuth sample in the following ways
     * `TodoAzure.iOS`: iPhone, iPhoneSimulator
     * `TodoAzure.UWP`: ARM, x64, x86
 * Release builds of `TodoAzure.Droid` now support running on x86-based emulators.
+ 
+<a name="setup"></a>
+Setting up the Sample
+---------------------
+
+To run this sample application, perform the following steps:
+
+1. Open `TodoAzure.sln` in Visual Studio 2017.
+2. The sample is configured by default to use an Azure Mobile App instance owned by the repository's author. Please review [the Default Azure Mobile App section](#azure-default). If you want to use your own instance instead, follow the instructions in [the Setting up an Azure Mobile App section](#azure). 
+3. Build the `TodoAzure.Droid` Xamarin.Android project for the *AnyCPU* platform in the *Release* configuration.
+4. Deploy this Xamarin.Android app to a device or emulator.
 
 <a name="azure-default"></a>
 Default Azure Mobile App
