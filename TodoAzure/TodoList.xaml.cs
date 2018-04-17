@@ -17,6 +17,7 @@
 
 using System;
 using System.Threading.Tasks;
+using Microsoft.AppCenter.Analytics;
 using Xamarin.Forms;
 
 namespace TodoAzure
@@ -61,6 +62,8 @@ namespace TodoAzure
         {
             await manager.SaveTaskAsync(item);
             todoList.ItemsSource = await manager.GetTodoItemsAsync();
+
+            Analytics.TrackEvent("Add Item");
         }
 
         async Task CompleteItem(TodoItem item)
@@ -68,6 +71,8 @@ namespace TodoAzure
             item.Done = true;
             await manager.SaveTaskAsync(item);
             todoList.ItemsSource = await manager.GetTodoItemsAsync();
+
+            Analytics.TrackEvent("Complete Item");
         }
 
         public async void OnAdd(object sender, EventArgs e)
