@@ -93,9 +93,9 @@
       <propertylist>
         <property name="Action" value="None" />
         <property name="ActionProbability" value="1" />
-        <property name="ApplicationNotificationSinkName" value="" />
-        <property name="ApplicationNotificationSinkOwner" value="" />
-        <property name="ApplicationNotificationSinkElement" value="None" />
+        <property name="ApplicationNotificationSinkName" value="DisableIfCompromised" />
+        <property name="ApplicationNotificationSinkOwner" value="TodoAzure.App" />
+        <property name="ApplicationNotificationSinkElement" value="Method" />
         <property name="ExtendedKeySourceName" value="" />
         <property name="ExtendedKeySourceOwner" value="" />
         <property name="ExtendedKeySourceElement" value="None" />

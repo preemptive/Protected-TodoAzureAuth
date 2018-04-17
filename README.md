@@ -37,6 +37,7 @@ Thus, both assemblies for the Android app - `TodoAzure.dll` and `TodoAzure.Droid
 Dotfuscator injects a Root Check into the Android app, which operates as follows:
 
 * When the user of the app selects the "Login" button on the initial Login Page, the Root Check detects whether or not the app is running on a device that has been rooted.
+    * This Check notifies the app of the detection result by calling the method `TodoAzure.App.DisableIfCompromised`. If rooting was detected, this method will disable the app by saving a property to local storage. Subsequent runs of the disabled app will error on startup and then exit.
     * This Check has additional Locations. This makes the app more resistant to reverse engineering, as if the Check code at one Location is removed, the others will still function.
 
 Dotfuscator also protects the Android app with renaming obfuscation.
@@ -50,7 +51,6 @@ This repository also differs from TodoAzureAuth in the following ways:
 
 * The app is configured to use an Azure Mobile App instance owned by the repository's author. See [the Default Azure Mobile App section](#azure-default).
     * For instructions on how to set up your own instance, see [the Setting up an Azure Mobile App section](#azure).
-* The app will exit if it considers itself disabled due to a property in local storage. As of this commit, however, nothing sets that property.
 * Authentication errors are now handled by the Login Page's code.
 * The result of the last authentication attempt is now shown on the Login Page.
 * The Windows Phone 8.1 project (`TodoAzure.WinPhone81`) has been removed, as Visual Studio 2017 does not support this project type.
