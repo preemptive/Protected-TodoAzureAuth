@@ -31,7 +31,10 @@ For more information about this sample see the Xamarin documentation on [Consumi
 Changes from the Original Sample
 --------------------------------
 
-This sample differs from the original TodoAzureAuth sample in the following ways:
+The primary difference between the original TodoAzureAuth and this repository is that [*PreEmptive Protection - Dotfuscator* Community Edition (CE)](https://docs.microsoft.com/en-us/visualstudio/ide/dotfuscator/) has been integrated into the build of `TodoAzure.Droid`, per [the instructions on the Xamarin Blog](https://blog.xamarin.com/protecting-xamarin-apps-dotfuscator/).
+Thus, both assemblies for the Android app - `TodoAzure.dll` and `TodoAzure.Droid.dll` - are protected.
+
+This repository also differs from TodoAzureAuth in the following ways:
 
 * The app is configured to use an Azure Mobile App instance owned by the repository's author. See [the Default Azure Mobile App section](#azure-default).
     * For instructions on how to set up your own instance, see [the Setting up an Azure Mobile App section](#azure).
@@ -50,10 +53,16 @@ Setting up the Sample
 
 To run this sample application, perform the following steps:
 
-1. Open `TodoAzure.sln` in Visual Studio 2017.
-2. The sample is configured by default to use an Azure Mobile App instance owned by the repository's author. Please review [the Default Azure Mobile App section](#azure-default). If you want to use your own instance instead, follow the instructions in [the Setting up an Azure Mobile App section](#azure). 
-3. Build the `TodoAzure.Droid` Xamarin.Android project for the *AnyCPU* platform in the *Release* configuration.
-4. Deploy this Xamarin.Android app to a device or emulator.
+1. Install [the latest version of Dotfuscator CE for Visual Studio 2017](https://www.preemptive.com/products/dotfuscator/downloads).
+2. [Register Dotfuscator CE](https://www.preemptive.com/dotfuscator/ce/docs/help/gui_getstarted.html#pctoc-registering-dotfuscator-ce).
+3. Open the Android project file, `Droid/TodoAzure.Droid.csproj`, in a text editor and modify the contents of the  `<DotfuscatorXamarinCliPath>` tag to be the absolute path of the Dotfuscator CE command-line interface.
+    * This path can be obtained by [opening Dotfuscator CE from Visual Studio](https://www.preemptive.com/dotfuscator/ce/docs/help/gui_getstarted.html#pctoc-starting-dotfuscator-ce), then [opening a Dotfuscator Command Prompt](https://www.preemptive.com/dotfuscator/ce/docs/help/intro_cli.html#pctoc-dotfuscator-command-prompt) and running `where dotfuscatorCLI`.
+4. Open `TodoAzure.sln` in Visual Studio 2017.
+5. The sample is configured by default to use an Azure Mobile App instance owned by the repository's author. Please review [the Default Azure Mobile App section](#azure-default). If you want to use your own instance instead, follow the instructions in [the Setting up an Azure Mobile App section](#azure).
+6. Set your [MSBuild project build output verbosity](https://docs.microsoft.com/en-us/visualstudio/ide/how-to-view-save-and-configure-build-log-files#to-change-the-amount-of-information-included-in-the-build-log) to Normal or a more verbose setting. 
+7. Build the `TodoAzure.Droid` Xamarin.Android project for the *AnyCPU* platform in the *Release* configuration.
+8. Verify that Dotfuscator ran by checking Visual Studio's Output pane. Look for the line `Running Dotfuscator with config file 'DotfuscatorConfig.xml'...`, which indicates where the Dotfuscator output begins.
+9. Deploy this Xamarin.Android app to a device or emulator.
 
 <a name="azure-default"></a>
 Default Azure Mobile App
