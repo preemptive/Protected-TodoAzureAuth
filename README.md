@@ -49,6 +49,7 @@ This repository also differs from TodoAzureAuth in the following ways:
 
 * The app is configured to use an Azure Mobile App instance owned by the repository's author. See [the Default Azure Mobile App section](#azure-default).
     * For instructions on how to set up your own instance, see [the Setting up an Azure Mobile App section](#azure).
+* The Login Page can display a warning message before starting the login process. As of this commit, however, nothing triggers this.
 * Authentication errors are now handled by the Login Page's code.
 * The result of the last authentication attempt is now shown on the Login Page.
 * The Windows Phone 8.1 project (`TodoAzure.WinPhone81`) has been removed, as Visual Studio 2017 does not support this project type.

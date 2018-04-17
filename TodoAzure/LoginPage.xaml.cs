@@ -41,10 +41,26 @@ namespace TodoAzure
             LastAuthStatus = "Not yet attempted";
         }
 
+        private bool IsDeviceRooted { get; set; }
+
         async void OnLoginButtonClicked(object sender, EventArgs e)
         {
             try
             {
+                if (IsDeviceRooted)
+                {
+                    var message = "This device appears to be rooted."
+                      + " Rooting can expose your device to malware and keyloggers."
+                      + " If you log in, your username and password could be stolen.";
+                    var shouldContinue = await DisplayAlert("Device Security", message, "Log In Anyway", "Cancel");
+
+                    if (!shouldContinue)
+                    {
+                        LastAuthStatus = "Authentication cancelled by the user due to a security concern";
+                        return;
+                    }
+                }
+
                 if (App.Authenticator != null)
                 {
                     authenticated = await App.Authenticator.AuthenticateAsync();
