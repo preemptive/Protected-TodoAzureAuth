@@ -41,6 +41,19 @@ namespace TodoAzure
             LastAuthStatus = "Not yet attempted";
         }
 
+        protected override async void OnAppearing()
+        {
+            if (App.IsDisabled)
+            {
+                IsVisible = false;
+                var message = "The security of this device has been compromised. "
+                  + "The app will exit.";
+                await DisplayAlert("App deactivated", message, "Exit App");
+                App.Exit(); // delegates to platform-specific exit logic
+            }
+            base.OnAppearing();
+        }
+        
         async void OnLoginButtonClicked(object sender, EventArgs e)
         {
             try
