@@ -23,6 +23,9 @@ using Android.OS;
 using Microsoft.WindowsAzure.MobileServices;
 using Android.Webkit;
 
+using Microsoft.AppCenter;
+using Microsoft.AppCenter.Analytics;
+
 namespace TodoAzure.Droid
 {
     [Activity(Label = "TodoAzure.Droid",
@@ -37,6 +40,8 @@ namespace TodoAzure.Droid
         protected override void OnCreate(Bundle bundle)
         {
             base.OnCreate(bundle);
+
+            AppCenter.Start(Constants.AppCenterSecretAndroid, typeof(Analytics));
 
             global::Xamarin.Forms.Forms.Init(this, bundle);
             Microsoft.WindowsAzure.MobileServices.CurrentPlatform.Init();

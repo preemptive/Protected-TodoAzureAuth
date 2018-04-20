@@ -28,6 +28,9 @@ namespace TodoAzure
         //  * TodoAzure.iOS:    Info.plist
         //  * TodoAzure.UWP:    Package.appxmanifest
         public static string AuthenticationRedirectScheme = "jsewellquickstart";
+        
+        // The app secret for a Visual Studio App Center project for Xamarin Android
+        public static string AppCenterSecretAndroid = "YOUR_APP_SECRET_HERE";
     }
 }
 

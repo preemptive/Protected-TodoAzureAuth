@@ -47,6 +47,7 @@ This repository also differs from TodoAzureAuth in the following ways:
 
 * The app is configured to use an Azure Mobile App instance owned by the repository's author. See [the Default Azure Mobile App section](#azure-default).
     * For instructions on how to set up your own instance, see [the Setting up an Azure Mobile App section](#azure).
+* Visual Studio App Center Analytics has been integrated into `TodoAzure.Droid`.
 * Authentication errors are now handled by the Login Page's code.
 * The result of the last authentication attempt is now shown on the Login Page.
 * The Windows Phone 8.1 project (`TodoAzure.WinPhone81`) has been removed, as Visual Studio 2017 does not support this project type.
@@ -68,10 +69,15 @@ To run this sample application, perform the following steps:
     * This path can be obtained by [opening Dotfuscator CE from Visual Studio](https://www.preemptive.com/dotfuscator/ce/docs/help/gui_getstarted.html#pctoc-starting-dotfuscator-ce), then [opening a Dotfuscator Command Prompt](https://www.preemptive.com/dotfuscator/ce/docs/help/intro_cli.html#pctoc-dotfuscator-command-prompt) and running `where dotfuscatorCLI`.
 4. Open `TodoAzure.sln` in Visual Studio 2017.
 5. The sample is configured by default to use an Azure Mobile App instance owned by the repository's author. Please review [the Default Azure Mobile App section](#azure-default). If you want to use your own instance instead, follow the instructions in [the Setting up an Azure Mobile App section](#azure).
-6. Set your [MSBuild project build output verbosity](https://docs.microsoft.com/en-us/visualstudio/ide/how-to-view-save-and-configure-build-log-files#to-change-the-amount-of-information-included-in-the-build-log) to Normal or a more verbose setting. 
-7. Build the `TodoAzure.Droid` Xamarin.Android project for the *AnyCPU* platform in the *Release* configuration.
-8. Verify that Dotfuscator ran by checking Visual Studio's Output pane. Look for the line `Running Dotfuscator with config file 'DotfuscatorConfig.xml'...`, which indicates where the Dotfuscator output begins.
-9. Deploy this Xamarin.Android app to a device or emulator.
+6. Set up an App Center project by following the [Create your app in the App Center Portal to obtain the App Secret](https://docs.microsoft.com/en-us/appcenter/sdk/getting-started/xamarin#2-create-your-app-in-the-app-center-portal-to-obtain-the-app-secret) section of the App Center documentation's *Get Started with Xamarin* page.
+    * Select "Android" as your OS.
+    * Select "Xamarin" as your Platform.
+    * In the new project's *Settings* section, note the **App Secret** in the top-right corner.
+7. In the TodoAzure (Portable) project, in the `Constants.cs` file, update the `AppCenterSecretAndroid` constant to the App Secret you noted in step 6.
+8. Set your [MSBuild project build output verbosity](https://docs.microsoft.com/en-us/visualstudio/ide/how-to-view-save-and-configure-build-log-files#to-change-the-amount-of-information-included-in-the-build-log) to Normal or a more verbose setting.
+9. Build the `TodoAzure.Droid` Xamarin.Android project for the *AnyCPU* platform in the *Release* configuration.
+10. Verify that Dotfuscator ran by checking Visual Studio's Output pane. Look for the line `Running Dotfuscator with config file 'DotfuscatorConfig.xml'...`, which indicates where the Dotfuscator output begins.
+11. Deploy this Xamarin.Android app to a device or emulator.
 
 <a name="azure-default"></a>
 Default Azure Mobile App
