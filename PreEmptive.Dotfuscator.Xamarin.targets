@@ -2,7 +2,7 @@
 
 <!-- 
   Dotfuscator-Xamarin integration file for MSBuild
-  Version 1.1.0
+  Version 1.3.0
   
   Copyright (c) 2017 PreEmptive Solutions, LLC
   This software is licensed under the terms of the PreEmptive Solutions End User License Agreement 
@@ -248,7 +248,7 @@
       <!-- Don't bother mimicing XML documentation file copy. -->
       <_DotfuscatorXamarinOriginalFiles Include="@(IntermediateSatelliteAssembliesWithTargetPath)"
                                         Condition="'@(IntermediateSatelliteAssembliesWithTargetPath)' != ''">
-        <Destination>%(IntermediateSatelliteAssembliesWithTargetPath.Culture)\$(IntermediateSatelliteAssembliesWithTargetPath.TargetName).resources.dll</Destination>
+        <Destination>%(IntermediateSatelliteAssembliesWithTargetPath.Culture)\$(TargetName).resources.dll</Destination>
       </_DotfuscatorXamarinOriginalFiles>
       <!-- Don't bother mimicing COM file copy. -->
       <_DotfuscatorXamarinOriginalFiles Include="@(WinMDExpArtifacts)"
