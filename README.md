@@ -5,6 +5,8 @@ This repository demonstrates protecting the Xamarin.Forms sample [TodoAzureAuth]
 When injected into a Xamarin.Android app, Root Checks detect and respond to rooted Android devices.
 [Dotfuscator Community Edition (CE)](https://docs.microsoft.com/en-us/visualstudio/ide/dotfuscator/), a .NET protection tool that is included with Visual Studio 2017, can inject Root Checks into your Xamarin.Android app automatically.
 
+This sample accompanies the MSDN Magazine article [*Detect and Respond to Rooted Android Devices from Xamarin Apps*](https://msdn.microsoft.com/en-US/magazine/mt846653), published May 2018.
+
 To set up and run this sample yourself, see [the Setting Up the Sample section](#setup).
 
 About this Repository
