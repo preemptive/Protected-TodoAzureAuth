@@ -5,6 +5,8 @@ This repository demonstrates protecting the Xamarin.Forms sample [TodoAzureAuth]
 When injected into a Xamarin.Android app, Root Checks detect and respond to rooted Android devices.
 [Dotfuscator Community Edition (CE)](https://docs.microsoft.com/en-us/visualstudio/ide/dotfuscator/), a .NET protection tool that is included with Visual Studio 2017, can inject Root Checks into your Xamarin.Android app automatically.
 
+This sample accompanies the MSDN Magazine article [*Detect and Respond to Rooted Android Devices from Xamarin Apps*](https://msdn.microsoft.com/en-US/magazine/mt846653), published May 2018.
+
 To set up and run this sample yourself, see [the Setting Up the Sample section](#setup).
 
 About this Repository
@@ -12,10 +14,10 @@ About this Repository
 
 This Repository has several branches that illustrate various ways to apply Root Checks to the sample.
 
-* `master`: A Root Check is configured to disable and close the app if rooting is detected.
+* `master`: A Root Check is configured to disable and close the app if rooting is detected. This is the primary scenario discussed in the MSDN Magazine article.
     * **You are currently on this branch.** For details on how this Root Check was configured, see [the Changes from the Original Sample section](#changes).
-* `warn-users`: A Root Check is configured to warn the user if rooting is detected.
-* `phone-home`: A Root Check is configured to report rooted devices to [Visual Studio App Center Analytics](https://docs.microsoft.com/en-us/appcenter/analytics/).
+* `warn-users`: A Root Check is configured to warn the user if rooting is detected. This is the alternate scenario discussed in the MSDN Magazine article's web-exclusive sidebar, "An Alternate Protection Strategy".
+* `phone-home`: A Root Check is configured to report rooted devices to [Visual Studio App Center Analytics](https://docs.microsoft.com/en-us/appcenter/analytics/). This scenario is not discussed in the MSDN Magazine article, but illustrates an additional way in which Root Checks can be used.
 
 Additionally, the `before-checks` branch shows the state of this repository before Dotfuscator was integrated, and thus before any Root Checks had been configured.
 
