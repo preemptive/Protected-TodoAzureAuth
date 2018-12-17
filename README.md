@@ -7,7 +7,9 @@ When injected into a Xamarin.Android app, Root Checks detect and respond to root
 
 This sample accompanies the MSDN Magazine article [*Detect and Respond to Rooted Android Devices from Xamarin Apps*](https://msdn.microsoft.com/en-US/magazine/mt846653), published May 2018.
 
-To set up and run this sample yourself, see [the Setting Up the Sample section](#setup).
+If you are using *Dotfuscator Community*, follow the [Setting Up the Sample section](#setup), to set up and run this sample.
+If you are using *[Dotfuscator Professional](https://www.preemptive.com/products/dotfuscator/overview)*, Dotfuscator's Xamarin integration has improved dramatically since it was first introduced. 
+See to the [simpler integration instructions](https://www.preemptive.com/dotfuscator/pro/userguide/en/getting_started_xamarin.html) and the [protected-bugsweeper](https://github.com/preemptive/protected-bugsweeper/tree/protected-professional) repo for help setting up and running the sample with Dotfuscator Professional protection.
 
 About this Repository
 ---------------------
@@ -76,7 +78,9 @@ This repository also differs from TodoAzureAuth in the following ways:
 Setting up the Sample
 ---------------------
 
-To run this sample application, perform the following steps:
+If you are using Dotfuscator Professional, use the [simpler integration instructions](https://www.preemptive.com/dotfuscator/pro/userguide/en/getting_started_xamarin.html) and the [protected-bugsweeper](https://github.com/preemptive/protected-bugsweeper/tree/protected-professional) repo for help setting up the sample with Dotfuscator Professional.
+
+Otherwise, to run this sample application, perform the following steps:
 
 1. Install [the latest version of Dotfuscator CE for Visual Studio 2017](https://www.preemptive.com/products/dotfuscator/downloads).
 2. [Register Dotfuscator CE](https://www.preemptive.com/dotfuscator/ce/docs/help/gui_getstarted.html#pctoc-registering-dotfuscator-ce).
